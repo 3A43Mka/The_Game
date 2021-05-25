@@ -21,8 +21,10 @@ function Player() {
 
   this.drawPunch = function () {
     if (this.isPunching()) {
+      ctx.globalAlpha = 0.5;
       ctx.fillStyle = "lightgrey";
       ctx.fillRect(this.punchX, this.punchY, scale, scale);
+      ctx.globalAlpha = 1;
       this.addPunchCooldown();
     }
   }
@@ -103,6 +105,10 @@ function Player() {
     if (this.punchCooldown <= 0) {
       this.punchCooldown += 5;
     }
+  }
+
+  this.getPunchCoords = function () {
+    return {x: this.punchX, y: this.punchY}
   }
 
 }

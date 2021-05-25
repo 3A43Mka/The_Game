@@ -4,14 +4,18 @@ const scale = 20;
 const rows = canvas.height / scale;
 const columns = canvas.width / scale;
 let player;
+let dummy1;
 
 (function setup() {
   player = new Player();
+  dummy1 = new Dummy(5, 7, 4);
 
   window.setInterval(() => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBackground();
     player.update();
+    dummy1.update(player);
+    dummy1.draw();
     player.draw();
   }, 150);
 }());
