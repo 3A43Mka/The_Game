@@ -21,44 +21,68 @@ window.addEventListener('keydown', keyDownHandler);
 window.addEventListener('keyup', keyUpHandler);
 
 function drawBackground() {
-  ctx.fillStyle = "black";
+  ctx.fillStyle = "darkgrey";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function keyDownHandler(evt) {
-  const direction = evt.key.replace('Arrow', '');
+  const direction = evt.key;
   console.log(direction, "was pressed");
   switch (direction) {
-    case 'Right':
+    case 'ArrowRight':
       if (player.getDirectionMap()[0] !== 1) player.updateDirectionMap(0, 1);
       break;
-    case 'Down':
+    case 'ArrowDown':
       if (player.getDirectionMap()[1] !== 1) player.updateDirectionMap(1, 1);
       break;
-    case 'Left':
+    case 'ArrowLeft':
       if (player.getDirectionMap()[2] !== 1) player.updateDirectionMap(2, 1);
       break;
-    case 'Up':
+    case 'ArrowUp':
       if (player.getDirectionMap()[3] !== 1) player.updateDirectionMap(3, 1);
+      break;
+    case 'd':
+      if (player.getPunchDirectionMap()[0] !== 1) player.updatePunchDirectionMap(0, 1);
+      break;
+    case 's':
+      if (player.getPunchDirectionMap()[1] !== 1) player.updatePunchDirectionMap(1, 1);
+      break;
+    case 'a':
+      if (player.getPunchDirectionMap()[2] !== 1) player.updatePunchDirectionMap(2, 1);
+      break;
+    case 'w':
+      if (player.getPunchDirectionMap()[3] !== 1) player.updatePunchDirectionMap(3, 1);
       break;
   }
 }
 
 function keyUpHandler(evt) {
-  const direction = evt.key.replace('Arrow', '');
+  const direction = evt.key;
   console.log(direction, "was released");
   switch (direction) {
-    case 'Right':
+    case 'ArrowRight':
       if (player.getDirectionMap()[0] !== 0) player.updateDirectionMap(0, 0);
       break;
-    case 'Down':
+    case 'ArrowDown':
       if (player.getDirectionMap()[1] !== 0) player.updateDirectionMap(1, 0);
       break;
-    case 'Left':
+    case 'ArrowLeft':
       if (player.getDirectionMap()[2] !== 0) player.updateDirectionMap(2, 0);
       break;
-    case 'Up':
+    case 'ArrowUp':
       if (player.getDirectionMap()[3] !== 0) player.updateDirectionMap(3, 0);
+      break;
+    case 'd':
+      if (player.getPunchDirectionMap()[0] !== 0) player.updatePunchDirectionMap(0, 0);
+      break;
+    case 's':
+      if (player.getPunchDirectionMap()[1] !== 0) player.updatePunchDirectionMap(1, 0);
+      break;
+    case 'a':
+      if (player.getPunchDirectionMap()[2] !== 0) player.updatePunchDirectionMap(2, 0);
+      break;
+    case 'w':
+      if (player.getPunchDirectionMap()[3] !== 0) player.updatePunchDirectionMap(3, 0);
       break;
   }
 }
