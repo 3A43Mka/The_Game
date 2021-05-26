@@ -1,3 +1,6 @@
+const woodHitSound = new Audio('./rsc/sounds/wood_hit.mp3');
+const woodBreakSound = new Audio('./rsc/sounds/wood_break.mp3');
+
 function Dummy(x, y, health) {
   this.x = x * scale;
   this.y = y * scale;
@@ -32,5 +35,11 @@ function Dummy(x, y, health) {
 
   this.takeHit = function () {
     this.health--;
+    if (this.health == 0) {
+      woodBreakSound.play();
+    } else {
+      woodHitSound.play();
+    }
+
   }
 }
