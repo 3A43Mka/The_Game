@@ -46,7 +46,7 @@ function keyDownHandler(evt) {
   const direction = evt.key;
   console.log(direction, "was pressed");
   const newP = document.createElement("P");
-  newP.innerText = direction;
+  newP.innerText = evt.keyCode;
   logs.appendChild(newP);
   switch (direction) {
     case 'ArrowRight':
