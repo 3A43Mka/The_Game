@@ -1,4 +1,6 @@
 const canvas = document.querySelector(".canvas");
+const logs = document.querySelector(".logs");
+
 const ctx = canvas.getContext("2d");
 const scale = 20;
 const rows = canvas.height / scale;
@@ -43,6 +45,9 @@ function drawBackground() {
 function keyDownHandler(evt) {
   const direction = evt.key;
   console.log(direction, "was pressed");
+  const newP = document.createElement("P");
+  newP.innerText = direction;
+  logs.appendChild(newP);
   switch (direction) {
     case 'ArrowRight':
       if (player.getDirectionMap()[0] !== 1) player.updateDirectionMap(0, 1);
